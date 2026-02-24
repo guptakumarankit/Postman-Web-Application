@@ -20,8 +20,8 @@ const Body = () => {
     <div>
       <textarea 
       className='outline-none border'
-        rows="7" 
-        cols="100"
+        rows="8" 
+        cols="126"
       onChange={handleInputChange}
       ></textarea>
       {

@@ -5,6 +5,7 @@ import Body from '../components/RequestComponents/Body';
 
 const Request = () => {
   const [activeTab, setActiveTab] = useState(0);
+
   const tabs = [
     { name: 'Params', content: <Params/> },
     { name: 'Headers', content: <Headers/> },
@@ -12,8 +13,8 @@ const Request = () => {
   ];
 
   return (
-    <div className="">
-      <div className="">
+    <div className="h-[60%] border">
+      <div className="flex gap-4 p-2 bg-gray-300">
         {tabs.map((tab, index) => (
           <button
             key={index}
