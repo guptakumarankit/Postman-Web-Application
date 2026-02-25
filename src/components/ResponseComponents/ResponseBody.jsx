@@ -3,9 +3,10 @@ import { ContextApp } from '../../contextApi/ContextApp'
 import JsonView from "@uiw/react-json-view";
 
 const ResponseBody = () => {
-  const { responseData } = useContext(ContextApp);
+  const { responseData , error } = useContext(ContextApp);
+
   return (
-    <div>
+   responseData &&  <div>
       { 
       <pre className='overflow-auto max-h-70 p-2'>
         <JsonView

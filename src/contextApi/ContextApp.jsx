@@ -10,9 +10,16 @@ export const ContextProvider = ({children}) => {
     const [error , setError] = useState(null);
     const [currentMethod , setCurrentMethod] = useState("GET")
     const [History , setHistory] = useState([{}]);
+    const [inputUrl, setInputUrl] = useState("");
+    const [parsedJsonData , setParsedJsonData] = useState(null); 
 
-    // console.log("currentMethod" , currentMethod);
-    console.log(History);
+    useEffect(() => {
+        const saved = JSON.parse(localStorage.getItem("requestHistory")) || [];
+        setHistory(saved);
+    }, []);
+
+   
+ 
     const value = {
         responseData,
         setResponseData ,
@@ -28,10 +35,13 @@ export const ContextProvider = ({children}) => {
         setError,
         currentMethod,
         setCurrentMethod,
-        setHistory
+        History,
+        setHistory,
+        inputUrl, 
+        setInputUrl,
+        parsedJsonData ,
+        setParsedJsonData
     }
-
-    // console.log(statusCode);
 
     return (
         <ContextApp.Provider value={value}>

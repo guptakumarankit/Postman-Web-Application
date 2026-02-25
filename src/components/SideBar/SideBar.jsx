@@ -17,12 +17,12 @@ const SideBar = () => {
 
   return (
     <>
-      <div className="flex flex-col bg-gray-300 h-screen w-[20%] border border-r-indigo-500">
+      <div className="flex flex-col bg-gray-900 h-screen w-[20%] text-gray-100 border border-gray-700 ">
         {tabs.map((tab, index) => (
           <button
             key={index}
             className={
-             `h-20  ${activeTab === index? "active  border-b-2 border-orange-300 bg-orange-400" : "bg-gray-300"}`
+             `h-20  ${activeTab === index? "active p-1 border-1 bg-gray-950 " : ""}`
             }
             onClick={() => setActiveTab(index)}
           >

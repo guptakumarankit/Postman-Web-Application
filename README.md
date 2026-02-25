@@ -1,16 +1,77 @@
-# React + Vite
+# Step 1: Project Setup 
+- After Clone 
+- npm install 
+- npm run dev 
+   
+# HTTP Method Dropdown 
+- GET
+- POST
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# you can Check Api on Get Method 
+https://dummyjson.com/posts
+https://dummyjson.com/products
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# you can Check Api on Post Method  
+https://dummyjson.com/auth/login
 
-## React Compiler
+json Body Data :- 
+```jsx
+{
+  "username": "emilys",
+  "password": "emilyspass",
+  "expiresInMins": 30
+}
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Request Section 
+Create tabs for: 
+• Params 
+• Headers 
+• Body 
+Users are able to switch between tabs.
 
-## Expanding the ESLint configuration
+# Query Params 
+• Add/remove key-value pairs only one add and delete one time..
+• Convert params into query string before sending 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Body 
+Accept JSON only 
+• Show validation error if invalid JSON (such as border red in my project)
+• Only enable for POST/PUT
+
+# Environment Variables
+- You can add environment variable only one at a time 
+- You can delete environment variable using same key value pair 
+- set last time environment variable only 
+- check in search bar {{environment.key}}
+
+#  Send Request
+• Show loading spinner 
+• Disable button if , input url is null 
+• Measure response time using performance.now().
+• Handle errors properly 
+• Data fetch i use fetch method  
+
+# Response Viewer
+• Status Code 
+• Status Text 
+• Response Time 
+• Response Headers 
+• Response Body 
+
+## Tab 
+- Body 
+- Header (Not Complete).
+
+# Pretty JSON Viewer
+Response body must be formatted 
+Indented properly 
+Syntax highlighted (if possible) 
+Collapsible JSON (bonus) 
+
+- use React JSON viewer library
+
+# Request History 
+• Store last 5 requests 
+• Click history item → auto fill request fields 

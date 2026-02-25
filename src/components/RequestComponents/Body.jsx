@@ -1,34 +1,45 @@
-import React, { useState } from 'react'
+import { useContext, useState } from "react";
+import { ContextApp } from "../../contextApi/ContextApp";
 
 const Body = () => {
+  const [jsonInput, setJsonInput] = useState("");
+  const [jsonError, setJsonError] = useState(null);
+  const {  parsedJsonData ,
+        setParsedJsonData , currentMethod } = useContext(ContextApp);
 
-  const [jsonInput , setJsonInput] = useState("");
-  // const [isValidJson , setIsValidJson] = useState(true);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setJsonInput(value);
 
-  const handleInputChange = (e) => {
-    setJsonInput(e.target.value);
-    // console.log(jsonInput);
-    // try {
-    //   JSON.parse(jsonInput);
-    //   setIsValidJson(true);
-    // } catch (error) {
-    //   setIsValidJson(false);
-    // }
-  }
+    if (value.trim() === "") {
+      setJsonError(null);
+      setParsedJsonData(null);
+      return;
+    }
+
+    try {
+      const parsed = JSON.parse(value);
+      setParsedJsonData(parsed);  
+      setJsonError(null);
+    } catch (error) {
+      setJsonError("Invalid JSON format");
+      setParsedJsonData(null);
+    }
+  };
+
+  console.log("parsedData" , parsedJsonData);
 
   return (
-    <div>
-      <textarea 
-      className='outline-none border'
-        rows="8" 
-        cols="126"
-      onChange={handleInputChange}
-      ></textarea>
-      {
-       <>
-        <div>{jsonInput}</div>
-       </>
-      }
+     (currentMethod.toLowerCase() == ("POST").toLowerCase() || 
+     currentMethod.toLowerCase() == ("PUT").toLowerCase()) && <div className="w-full h-full mx-auto">
+      <textarea
+        value={jsonInput}
+        onChange={handleChange}
+        placeholder="Enter JSON here..."
+        className={`w-full h-40 border p-3 rounded outline-none ${
+          jsonError ? "border-red-500" : "border-gray-300"
+        }`}
+      />
     </div>
   )
 }
